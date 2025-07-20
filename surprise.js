@@ -75,7 +75,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const imageMap = {
       1: "me1.png",
       2: "me2.JPG",
-      3: "me3.JPG",
+      3: "me3.jpg",
       4: "me4.png",
       5: "me5.png",
       6: "me6.png",
