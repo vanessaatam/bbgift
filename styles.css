@@ -206,7 +206,7 @@ h3 {
 .button-row {
   position: absolute;
   bottom: 25%;
-  left: 50%;
+  left: 45%;
   transform: translateX(-50%);
   display: flex;
   gap: 16px;
@@ -214,26 +214,40 @@ h3 {
 }
 
 .button-row button {
-  padding: 10px 20px;
+  padding: 3% 8%;
   font-size: 16px;
   font-family: inherit;
+  width: auto;
   border-radius: 8px;
   cursor: pointer;
   border-width: 1.5px;
   transition: transform 0.2s ease, background-color 0.3s ease;
+  display: inline-block;   
 }
 
 #yesBtn {
   background-color: white;
   color: #004d00;
   border-color:#004d00;
-  
+  font-family: 'Times New Roman', Times, serif;
+  padding: 5% 15%;
+  margin-top:5%;
+  margin-bottom: 20%;
+
+
+
 }
 
 #noBtn {
   background-color: white;
   color: #004d00;
   border-color:#004d00;
+  font-family: 'Times New Roman', Times, serif;
+  padding: 5% 15%;
+  margin-top:5%;
+  margin-bottom: 20%;
+
+
 
 }
 
@@ -242,6 +256,29 @@ h3 {
 
 }
 
+#musicYesBtn {
+  background-color: white;
+  color: #004d00;
+  border-color:#004d00;
+  display: inline;   
+  white-space: nowrap;  
+  margin-bottom: 40%;
+  font-family: 'Times New Roman', Times, serif;
+
+}
+
+#musicNoBtn {
+  background-color: white;
+  color: #004d00;
+  border-color:#004d00;
+  display: inline-block;   
+  white-space: nowrap;
+  margin-bottom: 40%;
+  font-family: 'Times New Roman', Times, serif;
+
+
+
+}
 
 #typewriter {
   position: absolute;
@@ -253,7 +290,7 @@ h3 {
   display: block;
   white-space: normal;
   word-wrap: break-word;
-    max-width: 95vw;         /* Wrap when near screen edge */
+    max-width: 85vw;         /* Wrap when near screen edge */
   padding: 6px 12px;
   margin: 0 auto;
 
@@ -270,7 +307,6 @@ h3 {
   text-align: center;
     position: relative; /* instead of absolute */
     margin: 0 auto;
-    max-width: 88vw;
     width: fit-content; /* allow it to grow but not exceed max */
     display: inline-block; /* more flexible sizing */
   
@@ -303,11 +339,7 @@ h3 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.img-wrapper img:hover {
-  transform: scale(1.08);
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
+
 .image-grid {
   display: none;
   margin-top: 20%;
@@ -320,7 +352,7 @@ h3 {
   display: flex;
   justify-content: center;
   gap: 6vw;
-  /* margin-top: 2vw; */
+  margin-top: 2vw;
 }
 
 /* ✅ Clean image style with hover effect */
@@ -336,14 +368,10 @@ h3 {
 }
 
 .final-reveal {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: block; /* instead of flex */
+  display: flex; /* instead of flex */
   text-align: center;
-  width: 100%;     /* optional, lets child fill available space */
-  padding: 0 5vw;  /* optional: horizontal padding */
+  justify-content: center;
+  align-items: center;
 }
 
 #end-typewriter {
@@ -351,33 +379,43 @@ h3 {
   animation: blink 0.75s step-end infinite;
   color: white;
   background-color: rgba(46, 113, 41, 0.7);
-  padding: 6px 10px;
+  padding: 6px 12px;
   border-radius: 12px;
-
-  display: inline-block;        /* Shrink/expand with content */
-  max-width: 98vw;              /* Wrap only at screen edge */
-  margin: 0 auto;
+  display: block;
+  white-space: normal;
+  width: fit-content;
+  word-wrap: break-word;
+  max-width: 98vw; 
+  width: 80%;             /* Wrap only at screen edge */
   font-family: 'Times New Roman', Times, serif;
   box-sizing: border-box;
   text-align: center;
-  white-space: pre-wrap;        /* Wrap at word boundaries */
-  word-break: break-word;       /* Prevent overflow on long strings */
+  margin-top: 5%;
 }
 
 
-#end-image {
+/* #end-image {
   max-width: 70vw;
   width: 100%;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-.final-reveal img {
-  /* position: absolute; */
-  margin-top: 60%;
-  top:40%;
+} */
+#end-image {
+  position: absolute;
+  /* margin-top: 50%; */
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  max-width: 70vw;
+  height: auto;
   /* left: 50%; */
   z-index: 5;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  top: 40%;
+
+
 
 }
 .heart {
@@ -402,13 +440,15 @@ h3 {
 
 
 .fade-in {
-  animation: fadeIn 1.0s ease-in forwards;
+  animation: fadeIn .8s ease-in-out;
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; transform: scale(0.95); }
-  100% { opacity: 1; transform: scale(1); }
+  0% { opacity: 0;  }
+  100% { opacity: 1; }
 }
+
+
 .hidden {
   display: none;
 }

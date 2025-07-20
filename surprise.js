@@ -2,15 +2,14 @@ window.addEventListener("DOMContentLoaded", () => {
   const audio = document.getElementById("bgMusic");
 
   const phrases = [
-    "Welcome to BB's Blind Boxes!",
-    "also known as BBBB",
-    "or as Quadruple B",
-    "or as B^4",
-    "or as B to the B to the B to the B",
-    "Anywho, let's get started shall we?",
-    "In a moment, you'll see a few 'BBBB's' that you can pick from",
-    "Pick one to see what new BB foto(s) you win",
-    "Wanna add some jams to your BBBB picking?",
+    // "Welcome to BB's Blind Boxes!",
+    // "also known as BBBB",
+    // "or as Quadruple B",
+    // "or as B^4",
+    // "or as B to the B to the B to the B",
+    // "Anywho, let's get started shall we?",
+    // "In a moment, you'll see a few BBBB's that you can pick from",
+    // "Pick one to see what new BB foto(s) you win",
     "__MUSIC_PROMPT__",
     "Good luck soldier!"
   ];
@@ -27,16 +26,43 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function typeIntro() {
     const currentPhrase = phrases[phraseIndex];
-
+  
+    // Special case for music prompt typing
     if (currentPhrase === "__MUSIC_PROMPT__") {
-      typeTarget.style.display = "none";
-      document.getElementById("musicPrompt").classList.remove("hidden");
+      const musicPromptText = "Wanna add some jams to your BBBB picking?";
+  
+      if (!isDeleting) {
+        const currentText = musicPromptText.substring(0, letterIndex);
+        typeTarget.textContent = currentText;
+  
+        if (letterIndex < musicPromptText.length) {
+          letterIndex++;
+          setTimeout(typeIntro, 75);
+        } else {
+          // Once fully typed, pause and show music buttons
+          document.getElementById("musicPrompt").classList.remove("hidden");
+          return; // Pause typewriter here
+        }
+      } else {
+        // Start deleting after button is clicked
+        if (letterIndex > 0) {
+          typeTarget.textContent = musicPromptText.substring(0, letterIndex - 1);
+          letterIndex--;
+          setTimeout(typeIntro, 35);
+        } else {
+          // Done deleting, move to next phrase
+          isDeleting = false;
+          phraseIndex++;
+          setTimeout(typeIntro, 500);
+        }
+      }
       return;
     }
-
+  
+    // Normal phrase typing/deleting logic
     const currentText = currentPhrase.substring(0, letterIndex);
     typeTarget.textContent = currentText;
-
+  
     if (!isDeleting && letterIndex < currentPhrase.length) {
       letterIndex++;
       setTimeout(typeIntro, 75);
@@ -61,21 +87,29 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
-
+  
   typeIntro();
 
+  function resumeAfterMusicPrompt() {
+    // Hide music prompt
+    document.getElementById("musicPrompt").classList.add("hidden");
+  
+    // Start deleting the text
+    isDeleting = true;
+    letterIndex = typeTarget.textContent.length;
+    setTimeout(typeIntro, 100); // resume typewriter
+  }
+  
   document.getElementById("musicYesBtn").addEventListener("click", () => {
     audio.play().catch(err => console.warn("Autoplay error:", err));
-    document.getElementById("musicPrompt").classList.add("hidden");
-    typeTarget.style.display = "block";
-    typeIntro();
+    resumeAfterMusicPrompt();
   });
-
+  
   document.getElementById("musicNoBtn").addEventListener("click", () => {
-    document.getElementById("musicPrompt").classList.add("hidden");
-    typeTarget.style.display = "block";
-    typeIntro();
+    alert("are you even my bb?");
+    resumeAfterMusicPrompt();
   });
+  
 
   function setupImageClickHandlers() {
     const imageMap = {
@@ -128,12 +162,13 @@ spawnFloatingHearts(); // 🎉 hearts come out
     function write() {
       endMessage.textContent = text.substring(0, i);
       if (i < text.length) {
-        i++;  // Correct variable to increment
-        setTimeout(write, 75);  // Call the same function again, not typeFinalMessage
+        i++;
+        setTimeout(write, 75);
       }
     }
     write();
   }
+  
   function spawnFloatingHearts() {
     const interval = setInterval(() => {
       const heart = document.createElement("div");
@@ -141,8 +176,8 @@ spawnFloatingHearts(); // 🎉 hearts come out
       heart.textContent = "💚";
   
       // Random horizontal start position
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.top = "60%"; // around the final-reveal position
+      heart.style.left = Math.random() * 120 + "vw";
+      heart.style.top = "70%"; // around the final-reveal position
   
       document.body.appendChild(heart);
   

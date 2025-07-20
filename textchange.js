@@ -1,13 +1,6 @@
 
 
 window.addEventListener("DOMContentLoaded", () => {
-    if (
-      sessionStorage.getItem("audioAllowed") &&
-      (!window.audioWindow || window.audioWindow.closed)
-    ) {
-      window.audioWindow = window.open("audio.html", "audioWindow", "width=1,height=1");
-    }
-  
   
 
   const heading = document.getElementById("headingone");
@@ -49,14 +42,6 @@ window.addEventListener("DOMContentLoaded", () => {
   setInterval(createSparkle, 100);
 
   yesBtn.addEventListener("click", () => {
-    sessionStorage.setItem("audioAllowed", "true");
-  
-    // Open the persistent audio popup only once
-    if (!window.audioWindow || window.audioWindow.closed) {
-      window.audioWindow = window.open("audio.html", "audioWindow", "width=1,height=1");
-    }
-  
-    // Navigate after slight delay to ensure music starts
     setTimeout(() => {
       window.location.href = "surprise.html";
     }, 300);
