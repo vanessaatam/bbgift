@@ -239,7 +239,7 @@ h4{
   font-size: 20px;
   text-align: center;
   z-index: 10;
-  background-color: rgba(46, 113, 41, 0.3); /* optional */
+  background-color: rgba(46, 113, 41, 0.5); /* optional */
   color: white;
 }
 .image-grid {
@@ -324,9 +324,10 @@ h4{
   transform: translateX(-50%);
   z-index: 3;
   color: white;
-  background-color: rgba(46, 113, 41, 0.3);
+  background-color: rgba(46, 113, 41, 0.5);
   padding: 6px 10px;
   border-radius: 6px;
+  font-family: 'Times New Roman', Times, serif;
 }
 .final-reveal {
   display: flex;

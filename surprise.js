@@ -8,16 +8,33 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 window.addEventListener("DOMContentLoaded", () => {
+  // const audio = document.getElementById("backgroundAudio");
+
+  // // Only play after user interacted once
+  // if (sessionStorage.getItem("audioAllowed")) {
+  //   audio.play().catch(() => {}); // Ignore autoplay errors silently
+  // } else {
+  //   // Wait for first user interaction
+  //   const unlockBtn = document.getElementById("unlockButton") || document.body;
+  //   unlockBtn.addEventListener("click", () => {
+  //     sessionStorage.setItem("audioAllowed", "true");
+  //     audio.play().catch(() => {});
+  //   }, { once: true });
+  // }
+  if (!window.audioWindow || window.audioWindow.closed) {
+    window.audioWindow = window.open("audio.html", "audioWindow", "width=1,height=1");
+  }
+  
   const phrases = [
     "Welcome to BB's Blind Boxes!",
-    // "also known as BBBB",
-    // "or as Quadruple B",
-    // "or as B^4",
-    // "or as B to the B to the B to the B",
-    // "Anywho, let's get started shall we?",
-    // "In a moment, you'll see a few 'BBBB's' that you can pick from",
-    // "Pick one to see what new BB foto(s) you win",
-    // "Good luck soldier!"
+    "also known as BBBB",
+    "or as Quadruple B",
+    "or as B^4",
+    "or as B to the B to the B to the B",
+    "Anywho, let's get started shall we?",
+    "In a moment, you'll see a few 'BBBB's' that you can pick from",
+    "Pick one to see what new BB foto(s) you win",
+    "Good luck soldier!"
   ];
 
   const typeTarget = document.getElementById("typewriter");
@@ -118,13 +135,4 @@ window.addEventListener("DOMContentLoaded", () => {
     write();
   }
 });
-document.addEventListener("DOMContentLoaded", () => {
-  // Re-open if closed
-  if (!window.audioWindow || window.audioWindow.closed) {
-    window.audioWindow = window.open(
-      "audio.html",
-      "audioWindow",
-      "width=1,height=1"
-    );
-  }
-});
+

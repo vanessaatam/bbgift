@@ -1,3 +1,4 @@
+
 const mm = document.getElementById("mm");
 const dd = document.getElementById("dd");
 const yy = document.getElementById("yy");
@@ -23,9 +24,7 @@ btn.addEventListener("click", () => {
   }
 
 });
-const unlockButton = document.querySelector(".unlock-button");
-
-unlockButton.addEventListener("click", () => {
+document.getElementById("unlockButton").addEventListener("click", () => {
   if (!window.audioWindow || window.audioWindow.closed) {
     window.audioWindow = window.open(
       "audio.html",
@@ -33,7 +32,6 @@ unlockButton.addEventListener("click", () => {
       "width=1,height=1"
     );
   }
-
   window.location.href = "second.html";
 });
 

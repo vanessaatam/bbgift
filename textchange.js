@@ -1,16 +1,23 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Re-open audio window if it was closed
-  if (!window.audioWindow || window.audioWindow.closed) {
-    window.audioWindow = window.open(
-      "audio.html",
-      "audioWindow",
-      "width=1,height=1"
-    );
-  }
 
-  // ... your existing logic below ...
-});
+
 window.addEventListener("DOMContentLoaded", () => {
+  // const audio = document.getElementById("backgroundAudio");
+
+  // // Only play after user interacted once
+  // if (sessionStorage.getItem("audioAllowed")) {
+  //   audio.play().catch(() => {}); // Ignore autoplay errors silently
+  // } else {
+  //   // Wait for first user interaction
+  //   const unlockBtn = document.getElementById("unlockButton") || document.body;
+  //   unlockBtn.addEventListener("click", () => {
+  //     sessionStorage.setItem("audioAllowed", "true");
+  //     audio.play().catch(() => {});
+  //   }, { once: true });
+  // }
+  // if (!window.audioWindow || window.audioWindow.closed) {
+  //   window.audioWindow = window.open("audio.html", "audioWindow", "width=1,height=1");
+  // }
+  
   const heading = document.getElementById("headingone");
   const container = document.querySelector(".sparkle-container");
   const buttonRow = document.getElementById("buttonRow");
