@@ -7,8 +7,8 @@ window.addEventListener("DOMContentLoaded", () => {
     audio.play().catch(() => {}); // Ignore autoplay errors silently
   } else {
     // Wait for first user interaction
-    const unlockBtn = document.getElementById("yesBtn") || document.body;
-    unlockBtn.addEventListener("click", () => {
+    const yesBtn = document.getElementById("yesBtn") || document.body;
+    yesBtn.addEventListener("click", () => {
       sessionStorage.setItem("audioAllowed", "true");
       audio.play().catch(() => {});
     }, { once: true });

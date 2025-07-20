@@ -24,16 +24,6 @@ btn.addEventListener("click", () => {
   }
 
 });
-document.getElementById("unlockButton").addEventListener("click", () => {
-  if (!window.audioWindow || window.audioWindow.closed) {
-    window.audioWindow = window.open(
-      "audio.html",
-      "audioWindow",
-      "width=1,height=1"
-    );
-  }
-  window.location.href = "second.html";
-});
 
 
 
