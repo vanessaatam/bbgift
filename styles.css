@@ -1,3 +1,10 @@
+@media (hover: none) {
+  .button-row button:hover {
+    transform: none;
+    background-color: initial;
+    box-shadow: none;
+  }
+}
 html, body {
   margin: 0;
   padding: 0;
@@ -251,10 +258,6 @@ h3 {
 
 }
 
-.button-row button:hover {
-  transform: scale(1.05);
-
-}
 
 #musicYesBtn {
   background-color: white;
