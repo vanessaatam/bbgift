@@ -2,14 +2,14 @@ window.addEventListener("DOMContentLoaded", () => {
   const audio = document.getElementById("bgMusic");
 
   const phrases = [
-    // "Welcome to BB's Blind Boxes!",
-    // "also known as BBBB",
-    // "or as Quadruple B",
-    // "or as B^4",
-    // "or as B to the B to the B to the B",
-    // "Anywho, let's get started shall we?",
-    // "In a moment, you'll see a few BBBB's that you can pick from",
-    // "Pick one to see what new BB foto(s) you win",
+    "Welcome to BB's Blind Boxes!",
+    "also known as BBBB",
+    "or as Quadruple B",
+    "or as B^4",
+    "or as B to the B to the B to the B",
+    "Anywho, let's get started shall we?",
+    "In a moment, you'll see a few BBBB's that you can pick from",
+    "Pick one to see what new BB foto(s) you win",
     "__MUSIC_PROMPT__",
     "Good luck soldier!"
   ];
