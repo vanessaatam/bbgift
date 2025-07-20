@@ -19,7 +19,7 @@ html, body {
   /* Main wrapper centered in screen */
   .lock-wrapper {
     position: relative;
-    width: 40%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,7 +28,7 @@ html, body {
   
   /* Lock image centered */
   .heart-lock {
-    width: 80%;
+    width: 100%;
     height: auto;
     z-index: 1;
   }
@@ -131,27 +131,29 @@ html, body {
   }
 }
 
-h3{
+h3 {
   position: absolute;
-  /* top: 30%; */
-  margin-top: 30%;
-  margin-bottom: 80%;
-  left:50%;
-  padding: 4px;
+  top: 30%;
+  left: 50%;
   transform: translateX(-50%);
-  font-size: 20px;
+  width: auto; 
+  padding-top: 4px;
+  padding-bottom: 4px;
+
+  font-size: 18px;
   border-radius: 3px;
   z-index: 3;
   background-color: white;
-
+  text-align: center;
 }
+
 h4{
   position: absolute;
-  top: 30%;
-  font-size: 20px;
+  top: 28%;
+  font-size: 26px;
   font-style: italic;
   z-index: 4;
-  color:rgb(37, 103, 32);
+  color:rgba(31, 95, 27, 0.801);
 
 }
 .banquet{
@@ -208,7 +210,8 @@ h4{
 
 #typewriter {
   font-size: 20px;
-  white-space: nowrap;
+  /* white-space: nowrap; */
+  width: auto;
   overflow: hidden;
   font-weight: 300;
   font-family: 'Times New Roman', Times, serif;
@@ -218,7 +221,7 @@ h4{
   margin: 0 auto;
   position: absolute;
   top: 50%;
-  left: 50%;
+  /* left: 50%; */
   transform: translateX(-50%);
   z-index: 3;
   padding: 6px 10px;
@@ -241,36 +244,9 @@ h4{
   background-color: rgba(46, 113, 41, 0.5); /* optional */
   color: white;
 }
-.image-grid {
-  display: none;
-  margin-top: 50px;
-}
-
-.first-row,
-.second-row,
-.third-row,
-.fourth-row {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 20px;
-}
-
-/* ✅ Clean image style with hover effect */
-.image-grid img {
-  width: 25%;
-  max-width: 180px;
-  object-fit: cover;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-
 .img-wrapper {
-  width: 180px;
-  height: 180px;
+  /* width: 180px;
+  height: 180px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -290,6 +266,33 @@ h4{
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+.image-grid {
+  display: none;
+  /* margin-top: 50px; */
+}
+
+.first-row,
+.second-row,
+.third-row,
+.fourth-row {
+  display: flex;
+  justify-content: center;
+  gap: 6vw;
+  /* margin-top: 2vw; */
+}
+
+/* ✅ Clean image style with hover effect */
+.image-grid img {
+  width: 30vw;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
 
 /* #end-image {
   display: block;
@@ -300,26 +303,21 @@ h4{
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 } */
 
+
 #end-image {
   width: auto;
-  max-width: 300px;
+  max-width: 70vw;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   display: block;
-  margin: 20px auto 0 auto; /* center horizontally */
 }
-
 #end-typewriter {
   font-size: 20px;
-  white-space: nowrap;
-  overflow: hidden;
   border-right: 2px solid white;
   animation: blink 0.75s step-end infinite;
   width: fit-content;
-  margin: 0 auto;
   position: relative;
-  top: 60%;
-  left: 50%;
+  bottom: 2vh;
   transform: translateX(-50%);
   z-index: 3;
   color: white;
@@ -328,17 +326,19 @@ h4{
   border-radius: 6px;
   font-family: 'Times New Roman', Times, serif;
 }
+
 .final-reveal {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 40px;
-  right: 50%;
-  margin-right: 50%;
+  transform: translateX(-50%);
+
 }
 .final-reveal img{
-  width: 90%;
+  transform: translateX(-50%);
+  left: 50%;
+
 }
 
 .fade-in {
