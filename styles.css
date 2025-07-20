@@ -2,7 +2,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: auto;
   min-height: 100vh;     /* safer than height: 100% */
   overflow-x: hidden;
   overflow-y: auto;  
