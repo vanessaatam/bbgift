@@ -28,7 +28,7 @@ html, body {
   
   /* Lock image centered */
   .heart-lock {
-    width: 100%;
+    width: 80%;
     height: auto;
     z-index: 1;
   }
