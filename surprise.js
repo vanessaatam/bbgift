@@ -1,5 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
   const audio = document.getElementById("bgMusic");
+  typeIntro();
 
   const phrases = [
     "Welcome to BB's Blind Boxes!",
@@ -23,7 +24,7 @@ window.addEventListener("DOMContentLoaded", () => {
   let phraseIndex = 0;
   let letterIndex = 0;
   let isDeleting = false;
-
+ 
   function typeIntro() {
     const currentPhrase = phrases[phraseIndex];
   
@@ -88,7 +89,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
   
-  typeIntro();
 
   function resumeAfterMusicPrompt() {
     // Hide music prompt
