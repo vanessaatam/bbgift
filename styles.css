@@ -19,8 +19,7 @@ html, body {
   /* Main wrapper centered in screen */
   .lock-wrapper {
     position: relative;
-    width: 260px;
-    height: 290px;
+    width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,7 +63,7 @@ html, body {
   
   .unlock-button {
     position: absolute;
-    top: 73%;
+    top: 74%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 5;
@@ -148,10 +147,11 @@ h3{
 }
 h4{
   position: absolute;
-  top: 33%;
+  top: 32%;
   font-size: 20px;
   font-style: italic;
-  z-index: 3;
+  z-index: 4;
+
   color:rgb(37, 103, 32);
 
 }
@@ -159,7 +159,7 @@ h4{
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 30%;
+  width: 35%;
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center; 
