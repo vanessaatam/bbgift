@@ -11,10 +11,10 @@ html, body {
   background-image: url("background.jpeg");
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: contain;  /* or cover depending on behavior you want */
-  background-color: #f5f5f5;
+  background-size: contain;  
+  z-index: -1;
+
 }
- 
   
   /* Main wrapper centered in screen */
   .lock-wrapper {
