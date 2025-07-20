@@ -105,8 +105,10 @@ window.addEventListener("DOMContentLoaded", () => {
             if (clickedSet.size === images.length) {
               setTimeout(() => {
                 finalReveal.classList.remove("hidden");
-                typeFinalMessage("Hehe, hope you enjoyed your prizes! I wuv you <3");
-                endPrize.classList.remove("hidden");
+typeFinalMessage("Hehe, hope you enjoyed your prizes! I wuv you <3");
+endPrize.classList.remove("hidden");
+spawnFloatingHearts(); // 🎉 hearts come out
+
               }, 500);
             }
           }, { once: true });
@@ -126,5 +128,25 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     write();
   }
+  function spawnFloatingHearts() {
+    const interval = setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.textContent = "💚";
+  
+      // Random horizontal start position
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = "60%"; // around the final-reveal position
+  
+      document.body.appendChild(heart);
+  
+      // Remove after animation completes
+      setTimeout(() => heart.remove(), 2000);
+    }, 200);
+  
+    // Stop after 3 seconds
+    setTimeout(() => clearInterval(interval), 10000);
+  }
+  
 });
 

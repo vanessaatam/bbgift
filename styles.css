@@ -19,8 +19,8 @@ body{
 
 h4{
   position: absolute;
-  top: 20%;
-  font-size: 26px;
+  top: 24%;
+  font-size: 24px;
   margin-left: 38%;
   font-style: italic;
   z-index: 4;
@@ -41,7 +41,7 @@ h4{
   } */
   .lock-wrapper {
     position: absolute;
-    top: 50%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 70%;
@@ -60,7 +60,7 @@ h4{
   
   .lock-inputs {
     position: absolute;
-    top: 55%;
+    top: 56%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -73,15 +73,16 @@ h4{
   }
   
   .lock-input {
-    width: 30px;
-    height: 31px; 
+    width: 32px;
+    height: 32px; 
     text-align: center;
     font-size: 13px;
     line-height: 36px;        
-    border: 1px solid rgb(0, 0, 0);
+    border: none;
     border-radius: 4px;
     background-color: transparent;     
     caret-color: rgb(255, 255, 255);
+
     color: white;
     box-sizing: border-box; 
     font-family: 'Times New Roman', Times, serif;
@@ -100,6 +101,8 @@ h4{
   
     color:white;
     background-color: transparent;
+    background-color:rgba(31, 95, 27, 0.801);
+
     padding: 6px 10px;
   
     border: 1px solid white;
@@ -161,7 +164,7 @@ h4{
 
 h3 {
   position: absolute;
-  top: 30%;
+  top: 27%;
   left: 50%;
   transform: translateX(-50%);
   width: auto; 
@@ -169,12 +172,21 @@ h3 {
   padding-bottom: 4px;
   margin-left: none;
   margin-right: none;
-
   font-size: 18px;
   border-radius: 3px;
   z-index: 3;
   background-color: white;
   text-align: center;
+  display: block;
+  white-space: normal;
+  word-wrap: break-word;
+
+  max-width: 85vw;         
+  padding: 6px 12px;
+  margin: 0 auto;
+
+
+  
 }
 
 
@@ -182,7 +194,7 @@ h3 {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 35%;
+  width: 40%;
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center; 
@@ -193,7 +205,7 @@ h3 {
 
 .button-row {
   position: absolute;
-  bottom: 30%;
+  bottom: 27%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -230,25 +242,36 @@ h3 {
 
 }
 
+
 #typewriter {
-  font-size: 20px;
-  /* white-space: nowrap; */
-  width: auto;
-  overflow: hidden;
-  font-weight: 300;
-  font-family: 'Times New Roman', Times, serif;
-  border-right: 2px solid white;
-  animation: blink 0.75s step-end infinite;
-  width: fit-content;
-  margin: 0 auto;
   position: absolute;
   top: 50%;
-  /* left: 50%; */
-  transform: translateX(-50%);
-  z-index: 3;
-  padding: 4px 8px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  /* Let it grow but wrap naturally */
+  display: block;
+  white-space: normal;
+  word-wrap: break-word;
+
+  max-width: 85vw;         /* Wrap when near screen edge */
+  padding: 6px 12px;
+  margin: 0 auto;
+
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+  background-color: rgba(46, 113, 41, 0.7);
   border-radius: 6px;
+
+  border-right: 2px solid white;
+  animation: blink 0.75s step-end infinite;
+
+  z-index: 10;
+  text-align: center;
 }
+
+
 
 @keyframes blink {
   50% {
@@ -256,16 +279,7 @@ h3 {
   }
 }
 /* surprise page */
-.centered-text {
-  position: relative;
-  top: 55%;
-  left: 50%;
-  font-size: 20px;
-  text-align: center;
-  z-index: 10;
-  background-color: rgba(46, 113, 41, 0.5); /* optional */
-  color: white;
-}
+
 .img-wrapper {
   /* width: 180px;
   height: 180px; */
@@ -290,7 +304,7 @@ h3 {
 }
 .image-grid {
   display: none;
-  margin-top: 50%;
+  margin-top: 20%;
 }
 
 .first-row,
@@ -317,30 +331,31 @@ h3 {
 
 .final-reveal {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  z-index: 4;
+  display: block; /* instead of flex */
   text-align: center;
-  max-width: 90vw;
-
+  width: 100%;     /* optional, lets child fill available space */
+  padding: 0 5vw;  /* optional: horizontal padding */
 }
+
 #end-typewriter {
   font-size: 20px;
   animation: blink 0.75s step-end infinite;
-  width: 120%;
   color: white;
   background-color: rgba(46, 113, 41, 0.7);
   padding: 6px 10px;
   border-radius: 12px;
-  font-family: 'Times New Roman', Times, serif;
-  line-height: 1.5;
-  box-sizing: border-box;
 
+  display: inline-block;        /* Shrink/expand with content */
+  max-width: 98vw;              /* Wrap only at screen edge */
+  margin: 0 auto;
+  font-family: 'Times New Roman', Times, serif;
+  box-sizing: border-box;
+  text-align: center;
+  white-space: pre-wrap;        /* Wrap at word boundaries */
+  word-break: break-word;       /* Prevent overflow on long strings */
 }
 
 
@@ -353,11 +368,30 @@ h3 {
 }
 .final-reveal img {
   /* position: absolute; */
-  margin-top: 90%;
-  top:50%;
+  margin-top: 60%;
+  top:40%;
   /* left: 50%; */
   z-index: 5;
 
+}
+.heart {
+  position: absolute;
+  color: pink;
+  font-size: 24px;
+  animation: floatUp 2s ease-out forwards;
+  z-index: 999;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(1.5);
+  }
 }
 
 
