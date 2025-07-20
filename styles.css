@@ -1,17 +1,25 @@
-/* Base setup for iPhone 15 Pro screen: 390 x 844 */
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 
   background-image: url("background.jpeg");
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: auto; /* ← Use contain so full image is visible */
+  background-size: 130%; 
   background-color: #f5f5f5;
-  position: relative;
+}
+h4{
+  position: absolute;
+  top: 26%;
+  font-size: 26px;
+  margin-left: 38%;
+ font-style: italic;
+  z-index: 4;
+  color:rgba(31, 95, 27, 0.801);
+
 }
 
   /* Main wrapper centered in screen */
@@ -59,16 +67,19 @@ html, body {
   }
   
   .lock-input {
-    width: 29.5px;
-    height: 30px; 
+    width: 30px;
+    height: 31px; 
     text-align: center;
     font-size: 13px;
     line-height: 36px;        
-    border: 1px solid #ccc;
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 4px;
     background-color: transparent;     
-    caret-color: #ccc;
+    caret-color: rgb(255, 255, 255);
+    color: white;
     box-sizing: border-box; 
+    font-family: 'Times New Roman', Times, serif;
+
  
   }
   
@@ -81,8 +92,8 @@ html, body {
     font-family: 'Times New Roman', Times, serif;
 
   
-    background-color:rgba(64, 114, 61, 0.813);
-    color: white;
+    color:white;
+    background-color: transparent;
     padding: 6px 10px;
   
     border: 1px solid white;
@@ -98,7 +109,7 @@ html, body {
   }
   
   .unlock-button:hover {
-    color:rgba(37, 103, 32, 0.435);
+    background-color:rgba(31, 95, 27, 0.801);
   }
   
   .unlock-button:disabled {
@@ -158,15 +169,7 @@ h3 {
   text-align: center;
 }
 
-h4{
-  position: absolute;
-  top: 28%;
-  font-size: 26px;
-  font-style: italic;
-  z-index: 4;
-  color:rgba(31, 95, 27, 0.801);
 
-}
 .banquet{
   position: absolute;
   top: 50%;
@@ -279,7 +282,7 @@ h4{
 }
 .image-grid {
   display: none;
-  /* margin-top: 50px; */
+  margin-top: 50%;
 }
 
 .first-row,
@@ -295,6 +298,7 @@ h4{
 /* ✅ Clean image style with hover effect */
 .image-grid img {
   width: 30vw;
+  top:20%;
   height: auto;
   object-fit: cover;
   border-radius: 12px;
@@ -303,54 +307,51 @@ h4{
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-
-
-/* #end-image {
-  display: block;
-  margin: 30px auto 0 auto;
-  width: 40%;
-  max-width: 300px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-} */
-
-
-#end-image {
-  width: auto;
-  max-width: 70vw;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  display: block;
-}
-#end-typewriter {
-  font-size: 20px;
-  border-right: 2px solid white;
-  animation: blink 0.75s step-end infinite;
-  width: fit-content;
-  position: relative;
-  bottom: 2vh;
-  transform: translateX(-50%);
-  z-index: 3;
-  color: white;
-  background-color: rgba(46, 113, 41, 0.5);
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-family: 'Times New Roman', Times, serif;
-}
-
 .final-reveal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  transform: translateX(-50%);
+  gap: 24px;
+  z-index: 4;
+  text-align: center;
+  max-width: 90vw;
 
 }
-.final-reveal img{
-  transform: translateX(-50%);
-  left: 50%;
+#end-typewriter {
+  font-size: 20px;
+  animation: blink 0.75s step-end infinite;
+  width: 120%;
+  color: white;
+  background-color: rgba(46, 113, 41, 0.7);
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-family: 'Times New Roman', Times, serif;
+  line-height: 1.5;
+  box-sizing: border-box;
 
 }
+
+
+#end-image {
+  max-width: 70vw;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.final-reveal img {
+  /* position: absolute; */
+  margin-top: 90%;
+  top:50%;
+  /* left: 50%; */
+  z-index: 5;
+
+}
+
 
 .fade-in {
   animation: fadeIn 1.0s ease-in forwards;
@@ -363,6 +364,8 @@ h4{
 .hidden {
   display: none;
 }
+
+
 /* 
 }
 

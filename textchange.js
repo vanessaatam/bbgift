@@ -56,10 +56,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
   setInterval(createSparkle, 100);
 
-  // 🎁 Button click handlers
   yesBtn.addEventListener("click", () => {
+    sessionStorage.setItem("audioAllowed", "true");  
     window.location.href = "surprise.html";
   });
+  
 
   noBtn.addEventListener("click", () => {
     alert("I'm not your BB");
