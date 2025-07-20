@@ -1,17 +1,19 @@
-<!-- audio.html -->
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Audio Player</title>
-  </head>
-  <body style="margin:0;">
-    <audio id="backgroundAudio" autoplay loop>
+  <head><title>Audio</title></head>
+  <body style="margin:0; padding:0; background:black; color:white;">
+    <audio id="bgMusic" autoplay loop>
       <source src="pano.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
     <script>
-      // Keep audio playing even if this tab is hidden
-      document.getElementById("backgroundAudio").play().catch(() => {});
+      // This ensures autoplay works inside this popup
+      window.onload = () => {
+        const audio = document.getElementById("bgMusic");
+        audio.play().catch(err => {
+          console.warn("Autoplay failed", err);
+        });
+      };
     </script>
   </body>
 </html>

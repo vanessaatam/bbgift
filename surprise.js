@@ -1,21 +1,13 @@
 
 window.addEventListener("DOMContentLoaded", () => {
-  const audio = document.getElementById("backgroundAudio");
 
-  // Only play after user interacted once
-  if (sessionStorage.getItem("audioAllowed")) {
-    audio.play().catch(() => {}); // Ignore autoplay errors silently
-  } else {
-    // Wait for first user interaction
-    const yesBtn = document.getElementById("yesBtn") || document.body;
-    yesBtn.addEventListener("click", () => {
-      sessionStorage.setItem("audioAllowed", "true");
-      audio.play().catch(() => {});
-    }, { once: true });
-  }
-  // if (!window.audioWindow || window.audioWindow.closed) {
-  //   window.audioWindow = window.open("audio.html", "audioWindow", "width=1,height=1");
-  // }
+    if (
+      sessionStorage.getItem("audioAllowed") &&
+      (!window.audioWindow || window.audioWindow.closed)
+    ) {
+      window.audioWindow = window.open("audio.html", "audioWindow", "width=1,height=1");
+    }
+  
   
   const phrases = [
     "Welcome to BB's Blind Boxes!",

@@ -20,21 +20,18 @@ function validate() {
 btn.addEventListener("click", () => {
   const code = `${normalize(mm.value)}/${normalize(dd.value)}/${normalize(yy.value)}`;
   if (acceptedCodes.includes(code)) {
-    // ✅ Open popup to play music
-    if (!window.audioWindow || window.audioWindow.closed) {
-      window.audioWindow = window.open(
-        "audio.html",
-        "audioWindow",
-        "width=1,height=1"
-      );
-    }
-
+    // ✅ Must open popup inside same user gesture
+    window.audioWindow = window.open("audio.html", "audioWindow", "width=1,height=1");
+    
+    // ✅ Optional: save state
     sessionStorage.setItem("audioAllowed", "true");
 
-    // ✅ Navigate to next page
+    // ✅ Then navigate
     window.location.href = "second.html";
   }
 });
+
+
 
 
 
