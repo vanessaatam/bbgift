@@ -1,12 +1,6 @@
 
 window.addEventListener("DOMContentLoaded", () => {
 
-    if (
-      sessionStorage.getItem("audioAllowed") &&
-      (!window.audioWindow || window.audioWindow.closed)
-    ) {
-      window.audioWindow = window.open("audio.html", "audioWindow", "width=1,height=1");
-    }
   
   
   const phrases = [
@@ -18,9 +12,11 @@ window.addEventListener("DOMContentLoaded", () => {
     "Anywho, let's get started shall we?",
     "In a moment, you'll see a few 'BBBB's' that you can pick from",
     "Pick one to see what new BB foto(s) you win",
+    "Wanna add some jams to your BBBB picking?", 
+    "__MUSIC_PROMPT__",
     "Good luck soldier!"
   ];
-
+  
   const typeTarget = document.getElementById("typewriter");
   const imageGrid = document.querySelector(".image-grid");
   const endMessage = document.getElementById("end-typewriter");
@@ -31,11 +27,47 @@ window.addEventListener("DOMContentLoaded", () => {
   let letterIndex = 0;
   let isDeleting = false;
 
+  // function typeIntro() {
+  //   const currentPhrase = phrases[phraseIndex];
+  //   const currentText = currentPhrase.substring(0, letterIndex);
+  //   typeTarget.textContent = currentText;
+
+  //   if (!isDeleting && letterIndex < currentPhrase.length) {
+  //     letterIndex++;
+  //     setTimeout(typeIntro, 75);
+  //   } else if (isDeleting && letterIndex > 0) {
+  //     letterIndex--;
+  //     setTimeout(typeIntro, 35);
+  //   } else {
+  //     if (!isDeleting) {
+  //       isDeleting = true;
+  //       setTimeout(typeIntro, 1000);
+  //     } else {
+  //       isDeleting = false;
+  //       phraseIndex++;
+  //       if (phraseIndex >= phrases.length) {
+  //         typeTarget.style.display = "none";
+  //         imageGrid.style.display = "block";
+  //         imageGrid.classList.add("fade-in");
+  //         setupImageClickHandlers();
+  //         return;
+  //       }
+  //       setTimeout(typeIntro, 500);
+  //     }
+  //   }
+  // }
   function typeIntro() {
     const currentPhrase = phrases[phraseIndex];
+  
+    if (currentPhrase === "__MUSIC_PROMPT__") {
+      typeTarget.style.display = "none";
+      document.getElementById("musicPrompt").classList.remove("hidden");
+      return; // pause typing until button clicked
+    }
+  
     const currentText = currentPhrase.substring(0, letterIndex);
     typeTarget.textContent = currentText;
-
+  
     if (!isDeleting && letterIndex < currentPhrase.length) {
       letterIndex++;
       setTimeout(typeIntro, 75);
@@ -60,8 +92,26 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
-
+  
   typeIntro();
+  document.getElementById("musicYesBtn").addEventListener("click", () => {
+    sessionStorage.setItem("audioAllowed", "true");
+  
+    if (!window.audioWindow || window.audioWindow.closed) {
+      window.audioWindow = window.open("audio.html", "audioWindow", "width=1,height=1");
+    }
+  
+    document.getElementById("musicPrompt").classList.add("hidden");
+    typeTarget.style.display = "block";
+    typeIntro(); // resume typing
+  });
+  
+  document.getElementById("musicNoBtn").addEventListener("click", () => {
+    document.getElementById("musicPrompt").classList.add("hidden");
+    typeTarget.style.display = "block";
+    typeIntro(); // resume typing
+  });
+  
 
   function setupImageClickHandlers() {
     const imageMap = {
